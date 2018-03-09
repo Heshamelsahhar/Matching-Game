@@ -1,8 +1,48 @@
-img{
+img {
     max-width: 100%;
     max-height: 100%;
 }
 
-body{
+body {
     background-image: url("./img/background.jpg");
+}
+
+.container {
+    width: 40%;
+    margin: auto;
+    
+}
+.game-deck {
+    background: rgb(59,103,158); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(59,103,158,1) 16%, rgba(43,136,217,1) 31%, rgba(32,124,202,1) 71%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(59,103,158,1) 16%,rgba(43,136,217,1) 31%,rgba(32,124,202,1) 71%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(59,103,158,1) 16%,rgba(43,136,217,1) 31%,rgba(32,124,202,1) 71%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#207cca',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border-radius: 10px;
+    -webkit-box-shadow: 13px 11px 66px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 13px 11px 66px 10px rgba(0,0,0,0.75);
+    box-shadow: 13px 11px 66px 10px rgba(0,0,0,0.75);
+
+}
+
+ul {
+    list-style-type: none;
+}
+.stars {
+    display: inline-block;
+}
+
+.star {
+    display: inline-block;
+}
+
+.option-bar {
+    display: inline-block;
+    
+}
+.moves {
+    display: inline-block;
+}
+.rep {
+    display: inline-block;
 }
