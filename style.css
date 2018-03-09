@@ -8,6 +8,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: auto;
 }
 html {
     box-sizing: border-box;
@@ -16,11 +17,19 @@ html {
 body {
     background-image: url("./img/background.jpg");
 }
+.game-title {
+    font-family: 'Luckiest Guy','cursive';
+    font-size: 50px;
+    text-align: center;
+    color: rgb(59,103,158);
+    margin: 0;
+}
 
 .container {
-    width: 40%;
+    width: 45%;
     margin: auto;
-    
+    margin-top: 0;
+    height: 80%;
 }
 .game-deck {
     background: rgb(59,103,158); /* Old browsers */
@@ -35,15 +44,17 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 5%;
+    padding: 3%;
     align-items: center;
+    height: 90%;
+
     
 }
 
 
 .card {
     width: 20%;
-    min-height: 125px;
+    height: 20%;
     background-color: silver;
     border-radius: 10px;
     display: flex;
@@ -62,20 +73,31 @@ ul {
 }
 .stars {
     display: inline-block;
+    font-size: 2em;
+    margin: 0;
+    float: left;
 }
 
 .star {
-    display: inline-block;
+    display: inline;
 }
 
 .option-bar {
-    display: inline-block;
+    display: inline;
+    color: rgb(59,103,158);
+    margin: 0;
+    text-align: right;
     
 }
 .moves {
     display: inline-block;
+    font-family: cursive;
+    font-size: 1.5em;
+    margin: 0;
+    margin-left: 3%;
 }
 .rep {
     display: inline-block;
+    float: right;
 }
 
