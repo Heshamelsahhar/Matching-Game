@@ -67,7 +67,23 @@ body {
     box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
     
     
+    
 }
+
+.card.show {
+    transform: rotateY(180deg);
+    transition-duration:  500ms;
+
+    
+
+}
+.card.show.now img{
+    display:unset;
+}
+.card img{
+    display: none;
+}
+
 ul {
     list-style-type: none;
 }
