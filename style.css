@@ -83,6 +83,16 @@ body {
 .card img{
     display: none;
 }
+@keyframes notright {
+    25% {transform: translateX(2px);}
+    50% {transform: translateX(-4px);}
+    75% {transform: translateX(4px);}
+    100%{transform: translateX(-2px);}
+}
+ .card.wrong {
+    animation-name: notright;
+    animation-duration: 1s;
+  }
 
 ul {
     list-style-type: none;

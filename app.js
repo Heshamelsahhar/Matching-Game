@@ -3,7 +3,7 @@ let opened;
 let curropen=0;
 function openCard(ev,arr)
 {
-if (curropen==2)return 0;
+    if (curropen==2)return 0;
     const givencard=ev.target;
     ev.stopPropagation();
     console.log("in");
@@ -18,13 +18,24 @@ if (curropen==2)return 0;
     {
     curropen=2;
         setTimeout(() => {
-            if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
-            {
-            givencard.classList.remove("show","now");
-            opened.classList.remove("show","now");
-            console.log("Not equal");
+        if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
+        {
+            givencard.classList.remove("show");
+            opened.classList.remove("show");
+            givencard.classList.add("wrong");
+            opened.classList.add("wrong");
+            setTimeout(()=> {
+                givencard.classList.remove("wrong","now");
+                opened.classList.remove("wrong","now");
+                curropen=0;
+            },1000);
+
+          
+        }
+        else {
             curropen=0;
-            }
+        }
+        
         isopen=false;
     }, 2000);
     
