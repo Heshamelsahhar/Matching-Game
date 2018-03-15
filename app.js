@@ -19,7 +19,8 @@ function openCard(ev,arr)
         if (givencard.tagName==="LI")
          curropen=2;
          else return 0;
-    
+        const moves=document.querySelector(".moves");
+        moves.innerHTML=`${parseInt(moves.innerHTML[0])+1} moves`;
         setTimeout(() => {
         if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
         {
@@ -42,20 +43,6 @@ function openCard(ev,arr)
             
             setTimeout(() => {
                 curropen=0;
-                for (let i=0;i<givencard.classList.length;i++)
-                {
-                    if (givencard.classList.item(i)!="card")
-                    {
-                        givencard.classList.remove(givencard.classList.item(i));
-                    }
-                }
-                for (let i=0;i<opened.classList.length;i++)
-                {
-                    if (opened.classList.item(i)!="card")
-                    {
-                        opened.classList.remove(opened.classList.item(i));
-                    }
-                }
             }, 2100);
             
 
