@@ -1,8 +1,5 @@
-let isopen=false;
-let opened;
-let curropen=0;
-let currmoves=0;
-let start=0;
+let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout;
+let seconds=0,minutes=0,hours=0,time;
 function openCard(ev,arr)
 {
     if (start===0)
@@ -29,7 +26,7 @@ function openCard(ev,arr)
         const moves=document.querySelector(".moves");
         moves.innerHTML=`${parseInt(moves.innerHTML[0])+1} moves`;
         currmoves++;
-        if (currmoves==1)
+        if (currmoves==20)
         {
             document.getElementsByClassName("stars")[0].firstElementChild.remove();
             currmoves=0;
@@ -90,11 +87,64 @@ function shuffle (x)
         [x[i],x[j]]=[x[j],x[i]];
     }
 }
-/*function runStopWatch()
+function add()
 {
+    seconds++;
+    time="";
+    if (seconds==60)
+    {
+        seconds=0;
+        minutes++;
+        if (minutes==60)
+        {
+            minutes=0;
+            hours++;
+        }
+
+    }
+    if (hours>9)
+    {
+        time+=hours;
+    }
+    else {
+        time+='0';
+        time+=hours;
+    }
+    time+=':';
+    if (minutes>9)
+    {
+        time+=minutes;
+    }
+    else 
+    {
+        time+='0';
+        time+=minutes;
+    }
+    time+=':';
+    if (seconds>9)
+    {
+        time+=seconds;
+    }
+    else 
+    {
+        time+='0';
+        time+=seconds;
+    }
+    document.querySelector(".stopwatch").innerHTML="";
+    document.querySelector(".stopwatch").innerHTML=time;
+    runStopWatch();
 
 }
-*/
+function runStopWatch()
+{
+    timeout=setTimeout(add, 1000);
+    
+    
+    
+    
+}
+
+
     const elem = document.getElementsByClassName("card");
     let arr=Array.apply(null, {length: 8}).map(Number.call,Number);
     arr=arr.concat(Array.apply(null, {length: 8}).map(Number.call,Number));
