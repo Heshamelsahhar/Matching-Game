@@ -1,8 +1,15 @@
 let isopen=false;
 let opened;
 let curropen=0;
+let currmoves=0;
+let start=0;
 function openCard(ev,arr)
 {
+    if (start===0)
+    {
+        start=1;
+        runStopWatch();
+    }
     if (curropen==2)return 0;
     const givencard=ev.target;
     
@@ -21,6 +28,12 @@ function openCard(ev,arr)
          else return 0;
         const moves=document.querySelector(".moves");
         moves.innerHTML=`${parseInt(moves.innerHTML[0])+1} moves`;
+        currmoves++;
+        if (currmoves==1)
+        {
+            document.getElementsByClassName("stars")[0].firstElementChild.remove();
+            currmoves=0;
+        }
         setTimeout(() => {
         if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
         {
@@ -77,6 +90,11 @@ function shuffle (x)
         [x[i],x[j]]=[x[j],x[i]];
     }
 }
+/*function runStopWatch()
+{
+
+}
+*/
     const elem = document.getElementsByClassName("card");
     let arr=Array.apply(null, {length: 8}).map(Number.call,Number);
     arr=arr.concat(Array.apply(null, {length: 8}).map(Number.call,Number));

@@ -48,7 +48,7 @@ body {
     align-items: center;
     height: 90%;
 
-    
+
 }
 
 
@@ -65,9 +65,9 @@ body {
     -webkit-box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
     box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
-    
-    
-    
+
+
+
 }
 
 .card.show {
@@ -97,7 +97,7 @@ transition-duration: 500ms;
 
 @keyframes yes {
 
-    
+
     35%{transform: translateY(2px);}
     70%{transform: translateY(-4px);}
     100%{transform: translateY(2px);}
@@ -116,32 +116,41 @@ ul {
     list-style-type: none;
 }
 .stars {
-    display: inline-block;
     font-size: 2em;
     margin: 0;
     float: left;
+    width:25%;
+    /* position: absolute; */
 }
 
 .star {
-    display: inline;
+    display: inline-block;
 }
 
 .option-bar {
-    display: inline;
+    width: 100%;
+    display: inline-block;
     color: rgb(59,103,158);
     margin: 0;
     text-align: right;
-    
+
 }
 .moves {
-    display: inline-block;
     font-family: cursive;
     font-size: 1.5em;
     margin: 0;
-    margin-left: 3%;
+    margin-left: 3%; 
+    display: inline-block;
+}
+.stopwatch {
+    font-family: cursive;
+    width: 25%;
+    display: inline-block;
+    font-size: 1.5em;
 }
 .rep {
-    display: inline-block;
+    /* display: inline-block; */
     float: right;
+    width: 25%;
 }
 
