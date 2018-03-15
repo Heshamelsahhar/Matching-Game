@@ -1,5 +1,26 @@
-let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout;
+let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout,found=0,starsgained=3;
 let seconds=0,minutes=0,hours=0,time;
+function runModal()
+{
+    
+    const modalNode=document.querySelector(".modal-stars");
+    for (let i=0;i<starsgained;i++)
+    {   const node=document.createElement("li");
+        node.setAttribute("class","modal-star");
+        const innernode=document.createElement("i");
+        innernode.setAttribute("class","fas fa-star");
+        node.appendChild(innernode);
+        modalNode.appendChild(node);
+    }
+    const modalTimeNode = document.querySelector(".won-time");
+    modalTimeNode.innerHTML=time;
+    const movesNode = document.querySelector(".moves-no");
+    movesNode.innerHTML=`${currmoves} moves`;
+    document.querySelector(".win-modal").classList.add("open");
+    console.log(document.querySelector(".win-modal").classList);
+
+
+}
 function openCard(ev,arr)
 {
     if (start===0)
@@ -30,6 +51,7 @@ function openCard(ev,arr)
         {
             document.getElementsByClassName("stars")[0].firstElementChild.remove();
             currmoves=0;
+            starsgained--;
         }
         setTimeout(() => {
         if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
@@ -69,6 +91,11 @@ function openCard(ev,arr)
             opened.classList.remove("right");   
             curropen=0;
             },1000);
+            found++;
+            if (found==8)
+            {
+                setTimeout(runModal,1000);
+            }
 
         }
         
@@ -137,14 +164,14 @@ function add()
 }
 function runStopWatch()
 {
+    if (found==8)return 0;
     timeout=setTimeout(add, 1000);
-    
-    
-    
-    
 }
 
+    document.querySelector(".cont").addEventListener("click",function(){
 
+        document.querySelector(".win-modal").classList.remove("open");
+    });
     const elem = document.getElementsByClassName("card");
     let arr=Array.apply(null, {length: 8}).map(Number.call,Number);
     arr=arr.concat(Array.apply(null, {length: 8}).map(Number.call,Number));

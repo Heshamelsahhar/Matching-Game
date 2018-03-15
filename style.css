@@ -154,3 +154,53 @@ ul {
     width: 25%;
 }
 
+.win-modal {
+    display: none;
+}
+.win-modal.open {
+    display: unset;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+    border-radius: 5px;
+    padding: 2%;
+    background-color: whitesmoke;
+    margin: 15% auto;
+    width: 40%;
+    font-family: cursive;
+    color: tomato;
+    text-align: center;
+}
+.win-modal button {
+    background-color: brown;
+    border: none;
+    padding: 15px 25px;
+    margin-left: 5%;
+    color: white;
+    cursor: pointer;
+}
+.modal-stars {
+   margin: 0;
+}
+.won {
+    margin-left: 5%;
+}
+.modal-star {
+    display : inline;
+    font-size: 2em;
+}
+.won-time {
+    font-size: 2em;
+    margin-left: 5%;
+}
+.moves-no 
+{
+    margin-left: 5%;
+    font-size: 2em;
+}
