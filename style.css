@@ -73,26 +73,44 @@ body {
 .card.show {
     transform: rotateY(180deg);
     transition-duration:  500ms;
-
-    
-
 }
 .card.show.now img{
     display:unset;
 }
+.card.close {
+transform: rotateY(-180deg);
+transition-duration: 500ms;
+}
 .card img{
     display: none;
 }
-@keyframes notright {
+@keyframes no {
     25% {transform: translateX(2px);}
     50% {transform: translateX(-4px);}
     75% {transform: translateX(4px);}
     100%{transform: translateX(-2px);}
 }
  .card.wrong {
-    animation-name: notright;
-    animation-duration: 1s;
+    animation-name: no;
+    animation-duration: 500ms;
   }
+
+@keyframes yes {
+
+    
+    35%{transform: translateY(2px);}
+    70%{transform: translateY(-4px);}
+    100%{transform: translateY(2px);}
+}
+.card.showing.right{
+    animation-name: yes;
+    animation-duration: 500ms;
+}
+
+.card.showing img {
+    display: unset;
+    transform: rotateY(180deg);
+}
 
 ul {
     list-style-type: none;

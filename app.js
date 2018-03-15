@@ -5,8 +5,8 @@ function openCard(ev,arr)
 {
     if (curropen==2)return 0;
     const givencard=ev.target;
+    
     ev.stopPropagation();
-    console.log("in");
     givencard.classList.add("show");
     setTimeout(()=>{givencard.classList.add("now");}, 200);
     if (isopen==false){
@@ -16,24 +16,63 @@ function openCard(ev,arr)
     }
     else 
     {
-    curropen=2;
+        if (givencard.tagName==="LI")
+         curropen=2;
+         else return 0;
+    
         setTimeout(() => {
         if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
         {
             givencard.classList.remove("show");
             opened.classList.remove("show");
-            givencard.classList.add("wrong");
-            opened.classList.add("wrong");
+            givencard.classList.add("showing","wrong");
+            opened.classList.add("showing","wrong");
             setTimeout(()=> {
-                givencard.classList.remove("wrong","now");
-                opened.classList.remove("wrong","now");
-                curropen=0;
+            setTimeout(() => {    
+            givencard.classList.remove("wrong","now","showing");
+            opened.classList.remove("wrong","now","showing");
+            }, 100);
+            givencard.classList.add("close");
+            opened.classList.add("close");
             },1000);
+            setTimeout(()=> {
+                givencard.classList.remove("close");
+                opened.classList.remove("close");
+            },2000);
+            
+            setTimeout(() => {
+                curropen=0;
+                for (let i=0;i<givencard.classList.length;i++)
+                {
+                    if (givencard.classList.item(i)!="card")
+                    {
+                        givencard.classList.remove(givencard.classList.item(i));
+                    }
+                }
+                for (let i=0;i<opened.classList.length;i++)
+                {
+                    if (opened.classList.item(i)!="card")
+                    {
+                        opened.classList.remove(opened.classList.item(i));
+                    }
+                }
+            }, 2100);
+            
 
           
         }
         else {
+            givencard.classList.remove("show","now");
+            opened.classList.remove("show","now");
+            givencard.classList.add("showing","right");
+            opened.classList.add("showing","right");
+        
+            setTimeout(()=> {
+            givencard.classList.remove("right");
+            opened.classList.remove("right");   
             curropen=0;
+            },1000);
+
         }
         
         isopen=false;
