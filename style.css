@@ -34,6 +34,13 @@ body {
     margin: 0;
 }
 
+.noselect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 ul {
     list-style-type: none;
 }
