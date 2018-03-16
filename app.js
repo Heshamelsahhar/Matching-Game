@@ -1,4 +1,4 @@
-let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout,found=0,starsgained=3;
+let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout,found=0,starsgained=3,totalmoves=0;
 let seconds=0,minutes=0,hours=0,time,copy,arr;
 
 function runModal() // in case of finishing game show Win Modal
@@ -16,7 +16,7 @@ function runModal() // in case of finishing game show Win Modal
     const modalTimeNode = document.querySelector(".won-time");
     modalTimeNode.innerHTML=time;
     const movesNode = document.querySelector(".moves-no");
-    movesNode.innerHTML=`${currmoves} moves`;
+    movesNode.innerHTML = `${totalmoves} moves`;
     document.querySelector(".win-modal").classList.add("open");
     console.log(document.querySelector(".win-modal").classList);
 }
@@ -56,7 +56,8 @@ function openCard(ev,arr) // in case of card press
          curropen=2;
          else return 0;
         const moves=document.querySelector(".moves");
-        moves.innerHTML=`${parseInt(moves.innerHTML[0])+1} moves`;
+        totalmoves++;
+        moves.innerHTML=`${totalmoves} moves`;
         currmoves++;
         if (currmoves==20)
         {
