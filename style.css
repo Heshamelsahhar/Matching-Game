@@ -82,10 +82,10 @@ ul {
 */
 
 .container {
-    width: 45%;
+    width: 60%;
     margin: auto;
     margin-top: 0;
-    height: 80%;
+    height: 85%;
 }
 
 .game-deck {
@@ -221,9 +221,9 @@ transition-duration: 500ms;
     margin-left: 5%;
     font-size: 2em;
 }
-/*
-/* Media Queries *
-@media screen and (min-width:352px) {
+
+/* Media Queries */
+@media screen and (min-width:352px) and (max-width:519px) {
     .container {
         width: 95%;
     }
@@ -273,29 +273,26 @@ transition-duration: 500ms;
         width: 5%;
     }
 }
-@media screen and (min-width:520px) and (max-width:700px) {
+@media screen and (min-width:701px) and (max-width:1400px) {
     .container {
-        width: 95%;
-        height: 90%;
+        width: 70%;
     }
     .game-title {
-        font-size: 1.25em;
+        font-size: 2em;
     }
     .stars {
-        font-size: 1.1em;
-        width: 20%;
+        font-size: 1.5em;
+        width: 25%;
     }
     .moves {
-        font-size: 1.1em;
-        width: 20%;
+        font-size: 1.5em;
+        width: 25%;
     }
     .stopwatch {
-        font-size:1.1em;
-        width: 20%;
+        font-size:1.5em;
+        width: 25%;
     }
-    .rep {
-        
+    .rep {  
         width: 5%;
     }
 }
-*/
