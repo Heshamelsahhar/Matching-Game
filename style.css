@@ -82,10 +82,10 @@ ul {
 */
 
 .container {
-    width: 60%;
+    width: 50%;
     margin: auto;
     margin-top: 0;
-    height: 85%;
+    height: 80%;
 }
 
 .game-deck {
@@ -223,6 +223,7 @@ transition-duration: 500ms;
 }
 
 /* Media Queries */
+
 @media screen and (min-width:352px) and (max-width:519px) {
     .container {
         width: 95%;
@@ -247,6 +248,7 @@ transition-duration: 500ms;
         width: 5%;
     }
 }
+
 
 @media screen and (min-width:520px) and (max-width:700px) {
     .container {
@@ -273,7 +275,8 @@ transition-duration: 500ms;
         width: 5%;
     }
 }
-@media screen and (min-width:701px) and (max-width:1400px) {
+
+@media screen and (min-width:701px) and (max-width:1224px) {
     .container {
         width: 70%;
     }
