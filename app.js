@@ -1,6 +1,7 @@
 let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout,found=0,starsgained=3;
-let seconds=0,minutes=0,hours=0,time;
-function runModal()
+let seconds=0,minutes=0,hours=0,time,copy,arr;
+
+function runModal() // in case of finishing game show Win Modal
 {
     
     const modalNode=document.querySelector(".modal-stars");
@@ -18,10 +19,20 @@ function runModal()
     movesNode.innerHTML=`${currmoves} moves`;
     document.querySelector(".win-modal").classList.add("open");
     console.log(document.querySelector(".win-modal").classList);
-
-
 }
-function openCard(ev,arr)
+
+function makeCopy() // make copy of initial Dom
+{
+     copy = document.createDocumentFragment();
+    const body = document.querySelector("body");
+    for (let i = 0; i < body.children.length ; i++)
+    {
+        const clone = body.children[i].cloneNode(true);
+        copy.appendChild(clone); 
+    }
+}
+
+function openCard(ev,arr) // in case of card press
 {
     if (start===0)
     {
@@ -105,7 +116,8 @@ function openCard(ev,arr)
     }
 
 }
-function shuffle (x)
+
+function shuffle (x) // shuffling Cards pictures
 {
 
     for (let i=arr.length-1;i>=0;i--)
@@ -114,8 +126,10 @@ function shuffle (x)
         [x[i],x[j]]=[x[j],x[i]];
     }
 }
-function add()
+
+function add() // adding one second for the stopwatch
 {
+    if (start!=1)return 0;
     seconds++;
     time="";
     if (seconds==60)
@@ -162,24 +176,43 @@ function add()
     runStopWatch();
 
 }
-function runStopWatch()
+function shuffleAndAddListners() // adding listners to elements
 {
-    if (found==8)return 0;
-    timeout=setTimeout(add, 1000);
-}
-
-    document.querySelector(".cont").addEventListener("click",function(){
-
+    document.querySelector(".cont").addEventListener("click",function(){ // Modal continue button press 
+    
         document.querySelector(".win-modal").classList.remove("open");
     });
+    document.querySelector(".rep").addEventListener("click",reset);
+
+    arr = Array.apply(null, {length: 8}).map(Number.call,Number);
+    arr = arr.concat(Array.apply(null, {length: 8}).map(Number.call,Number));
     const elem = document.getElementsByClassName("card");
-    let arr=Array.apply(null, {length: 8}).map(Number.call,Number);
-    arr=arr.concat(Array.apply(null, {length: 8}).map(Number.call,Number));
     shuffle(arr);
-    for (let i=0;i<elem.length;i++)
+    for (let i = 0 ; i < elem.length ; i++)
     {
-        elem[i].addEventListener("click",function(){openCard(event,elem)});
+        elem[i].addEventListener("click",function(){openCard(event,elem)}); // adding Event listner for each card
         let child = document.createElement("img");
         child.setAttribute("src",`img/${arr[i]+1}.png`);
         elem[i].appendChild(child);
     }
+}
+function runStopWatch() // running stopwatch until all cards are opened
+{
+    if (found==8)return 0;
+    if (start!=1){seconds=0;return 0;}
+    timeout=setTimeout(add, 1000);
+}
+function reset() // starting game from begining
+{
+    document.querySelector("body").remove();
+    let newbody=document.createElement("body");
+    newbody.appendChild(copy);
+    document.querySelector("html").appendChild(newbody);
+    isopen=false, curropen=0, currmoves=0, start=0,found=0, starsgained=3;
+    seconds=0, minutes=0, hours=0;
+    shuffleAndAddListners();
+}
+    makeCopy();
+    shuffleAndAddListners();
+
+

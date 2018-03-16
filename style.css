@@ -2,6 +2,7 @@ img {
     max-width: 100%;
     max-height: 100%;
 }
+
 html,
 body {
     width: 100%;
@@ -10,6 +11,7 @@ body {
     padding: 0;
     overflow: auto;
 }
+
 html {
     box-sizing: border-box;
 }
@@ -17,6 +19,13 @@ html {
 body {
     background-image: url("./img/background.jpg");
 }
+/* 
+    Heading of Game 
+    - Number of stars 
+    - Number of moves 
+    - StopWatch
+    - Reset Button
+*/
 .game-title {
     font-family: 'Luckiest Guy','cursive';
     font-size: 50px;
@@ -25,12 +34,60 @@ body {
     margin: 0;
 }
 
+ul {
+    list-style-type: none;
+}
+
+.stars {
+    font-size: 2em;
+    margin: 0;
+    float: left;
+    width: 25%;
+}
+
+.star {
+    display: inline-block;
+}
+
+.option-bar {
+    width: 100%;
+    display: inline-block;
+    color: rgb(59,103,158);
+    margin: 0;
+    text-align: right;
+
+}
+
+.moves {
+    font-family: cursive;
+    font-size: 1.5em;
+    margin: 0;
+    margin-left: 3%; 
+    display: inline-block;
+}
+
+.stopwatch {
+    font-family: cursive;
+    width: 25%;
+    display: inline-block;
+    font-size: 1.5em;
+}
+
+.rep {
+    float: right;
+    width: 25%;
+}
+/* 
+    Cards Area
+*/
+
 .container {
     width: 45%;
     margin: auto;
     margin-top: 0;
     height: 80%;
 }
+
 .game-deck {
     background: rgb(59,103,158); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(59,103,158,1) 16%, rgba(43,136,217,1) 31%, rgba(32,124,202,1) 71%); /* FF3.6-15 */
@@ -51,7 +108,6 @@ body {
 
 }
 
-
 .card {
     width: 20%;
     height: 20%;
@@ -60,7 +116,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:0.5%;
+    margin: 0.5%;
     margin-bottom: 1%;
     -webkit-box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
@@ -75,7 +131,7 @@ body {
     transition-duration:  500ms;
 }
 .card.show.now img{
-    display:unset;
+    display: unset;
 }
 .card.close {
 transform: rotateY(-180deg);
@@ -111,48 +167,9 @@ transition-duration: 500ms;
     display: unset;
     transform: rotateY(180deg);
 }
-
-ul {
-    list-style-type: none;
-}
-.stars {
-    font-size: 2em;
-    margin: 0;
-    float: left;
-    width:25%;
-    /* position: absolute; */
-}
-
-.star {
-    display: inline-block;
-}
-
-.option-bar {
-    width: 100%;
-    display: inline-block;
-    color: rgb(59,103,158);
-    margin: 0;
-    text-align: right;
-
-}
-.moves {
-    font-family: cursive;
-    font-size: 1.5em;
-    margin: 0;
-    margin-left: 3%; 
-    display: inline-block;
-}
-.stopwatch {
-    font-family: cursive;
-    width: 25%;
-    display: inline-block;
-    font-size: 1.5em;
-}
-.rep {
-    /* display: inline-block; */
-    float: right;
-    width: 25%;
-}
+/* 
+    Modal that appear in case of finishing game
+*/
 
 .win-modal {
     display: none;
@@ -204,3 +221,81 @@ ul {
     margin-left: 5%;
     font-size: 2em;
 }
+/*
+/* Media Queries *
+@media screen and (min-width:352px) {
+    .container {
+        width: 95%;
+    }
+    .game-title {
+        font-size: 1em;
+    }
+    .stars {
+        font-size: 0.75em;
+        width: 15%;
+    }
+    .moves {
+        font-size: 0.75em;
+        width: 15%;
+    }
+    .stopwatch {
+        font-size: 0.75em;
+        width: 15%;
+    }
+    .rep {
+       
+        width: 5%;
+    }
+}
+
+@media screen and (min-width:520px) and (max-width:700px) {
+    .container {
+        width: 95%;
+        height: 90%;
+    }
+    .game-title {
+        font-size: 1.25em;
+    }
+    .stars {
+        font-size: 1.1em;
+        width: 20%;
+    }
+    .moves {
+        font-size: 1.1em;
+        width: 20%;
+    }
+    .stopwatch {
+        font-size:1.1em;
+        width: 20%;
+    }
+    .rep {
+        
+        width: 5%;
+    }
+}
+@media screen and (min-width:520px) and (max-width:700px) {
+    .container {
+        width: 95%;
+        height: 90%;
+    }
+    .game-title {
+        font-size: 1.25em;
+    }
+    .stars {
+        font-size: 1.1em;
+        width: 20%;
+    }
+    .moves {
+        font-size: 1.1em;
+        width: 20%;
+    }
+    .stopwatch {
+        font-size:1.1em;
+        width: 20%;
+    }
+    .rep {
+        
+        width: 5%;
+    }
+}
+*/
