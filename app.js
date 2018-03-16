@@ -190,9 +190,10 @@ function shuffleAndAddListners() // adding listners to elements
     shuffle(arr);
     for (let i = 0 ; i < elem.length ; i++)
     {
-        elem[i].addEventListener("click",function(){openCard(event,elem)}); // adding Event listner for each card
+        elem[i].addEventListener("click",function(e){openCard(e,elem)}); // adding Event listner for each card
         let child = document.createElement("img");
         child.setAttribute("src",`img/${arr[i]+1}.png`);
+        //child.setAttribute("class","noselect");
         elem[i].appendChild(child);
     }
 }
@@ -215,7 +216,3 @@ function reset() // starting game from begining
     makeCopy();
     shuffleAndAddListners();
 
-    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    console.log(w);
-    console.log(h);
