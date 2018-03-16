@@ -240,18 +240,22 @@ transition-duration: 500ms;
     }
     .game-title {
         font-size: 1em;
+        margin: 0;
     }
     .stars {
         font-size: 0.75em;
         width: 15%;
+        margin: 0;
     }
     .moves {
         font-size: 0.75em;
         width: 15%;
+        margin: 0;
     }
     .stopwatch {
         font-size: 0.75em;
         width: 15%;
+        margin: 0;
     }
     .rep {
        
