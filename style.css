@@ -225,6 +225,9 @@ transition-duration: 500ms;
 /* Media Queries */
 
 @media screen and (min-width:352px) and (max-width:519px) {
+    .option-bar {
+        margin: 0;
+    }
     .container {
         width: 95%;
     }
@@ -251,6 +254,9 @@ transition-duration: 500ms;
 
 
 @media screen and (min-width:520px) and (max-width:700px) {
+    .option-bar {
+        margin: 0;
+    }
     .container {
         width: 95%;
         height: 90%;
