@@ -1,20 +1,20 @@
-let isopen=false, opened, curropen=0, currmoves=0, start=0, timeout,found=0,starsgained=3,totalmoves=0;
-let seconds=0,minutes=0,hours=0,time,copy,arr;
+let isopen=false, opened, curropen=0, start=0, timeout,found=0,starsgained=3,totalmoves=0;
+let seconds=0, minutes=0, hours=0, time, copy, arr;
 
 function runModal() // in case of finishing game show Win Modal
 {
     
     const modalNode=document.querySelector(".modal-stars");
-    for (let i=0;i<starsgained;i++)
-    {   const node=document.createElement("li");
+    for (let i = 0;i < starsgained ; i++)
+    {   const node = document.createElement("li");
         node.setAttribute("class","modal-star");
-        const innernode=document.createElement("i");
+        const innernode = document.createElement("i");
         innernode.setAttribute("class","fas fa-star");
         node.appendChild(innernode);
         modalNode.appendChild(node);
     }
     const modalTimeNode = document.querySelector(".won-time");
-    modalTimeNode.innerHTML=time;
+    modalTimeNode.innerHTML = time;
     const movesNode = document.querySelector(".moves-no");
     movesNode.innerHTML = `${totalmoves} moves`;
     document.querySelector(".win-modal").classList.add("open");
@@ -34,35 +34,33 @@ function makeCopy() // make copy of initial Dom
 
 function openCard(ev,arr) // in case of card press
 {
-    if (start===0)
+    if (start === 0)
     {
-        start=1;
+        start = 1;
         runStopWatch();
     }
-    if (curropen==2)return 0;
-    const givencard=ev.target;
+    if (curropen == 2)return 0;
+    const givencard = ev.target;
     
     ev.stopPropagation();
     givencard.classList.add("show");
     setTimeout(()=>{givencard.classList.add("now");}, 200);
-    if (isopen==false){
-        opened=ev.target;
-        isopen=true;
-        curropen=1;
+    if (isopen == false){
+        opened = ev.target;
+        isopen = true;
+        curropen = 1;
     }
     else 
     {
-        if (givencard.tagName==="LI")
-         curropen=2;
+        if (givencard.tagName === "LI")
+         curropen = 2;
          else return 0;
-        const moves=document.querySelector(".moves");
+        const moves = document.querySelector(".moves");
         totalmoves++;
-        moves.innerHTML=`${totalmoves} moves`;
-        currmoves++;
-        if (currmoves==20)
+        moves.innerHTML = `${totalmoves} moves`;
+        if (totalmoves % 20 == 0)
         {
             document.getElementsByClassName("stars")[0].firstElementChild.remove();
-            currmoves=0;
             starsgained--;
         }
         setTimeout(() => {
@@ -73,13 +71,16 @@ function openCard(ev,arr) // in case of card press
             givencard.classList.add("showing","wrong");
             opened.classList.add("showing","wrong");
             setTimeout(()=> {
+
             setTimeout(() => {    
             givencard.classList.remove("wrong","now","showing");
             opened.classList.remove("wrong","now","showing");
             }, 100);
+            
             givencard.classList.add("close");
             opened.classList.add("close");
             },1000);
+            
             setTimeout(()=> {
                 givencard.classList.remove("close");
                 opened.classList.remove("close");
@@ -101,17 +102,17 @@ function openCard(ev,arr) // in case of card press
             setTimeout(()=> {
             givencard.classList.remove("right");
             opened.classList.remove("right");   
-            curropen=0;
+            curropen = 0;
             },1000);
             found++;
-            if (found==8)
+            if (found == 8)
             {
                 setTimeout(runModal,1000);
             }
 
         }
         
-        isopen=false;
+        isopen = false;
     }, 2000);
     
     }
@@ -121,56 +122,56 @@ function openCard(ev,arr) // in case of card press
 function shuffle (x) // shuffling Cards pictures
 {
 
-    for (let i=arr.length-1;i>=0;i--)
+    for (let i = arr.length-1 ; i >= 0 ; i--)
     {
-        let j=Math.floor(Math.random()*(i+1));
-        [x[i],x[j]]=[x[j],x[i]];
+        let j = Math.floor(Math.random()*(i+1));
+        [x[i],x[j]] = [x[j],x[i]];
     }
 }
 
 function add() // adding one second for the stopwatch
 {
-    if (start!=1)return 0;
+    if (start != 1)return 0;
     seconds++;
-    time="";
-    if (seconds==60)
+    time = "";
+    if (seconds == 60)
     {
-        seconds=0;
+        seconds = 0;
         minutes++;
-        if (minutes==60)
+        if (minutes == 60)
         {
-            minutes=0;
+            minutes = 0;
             hours++;
         }
 
     }
     if (hours>9)
     {
-        time+=hours;
+        time+= hours;
     }
     else {
-        time+='0';
-        time+=hours;
+        time+= '0';
+        time+= hours;
     }
-    time+=':';
+    time+= ':';
     if (minutes>9)
     {
-        time+=minutes;
+        time+= minutes;
     }
     else 
     {
-        time+='0';
-        time+=minutes;
+        time+= '0';
+        time+= minutes;
     }
-    time+=':';
+    time+= ':';
     if (seconds>9)
     {
-        time+=seconds;
+        time+= seconds;
     }
     else 
     {
-        time+='0';
-        time+=seconds;
+        time+= '0';
+        time+= seconds;
     }
     document.querySelector(".stopwatch").innerHTML="";
     document.querySelector(".stopwatch").innerHTML=time;
@@ -200,19 +201,20 @@ function shuffleAndAddListners() // adding listners to elements
 }
 function runStopWatch() // running stopwatch until all cards are opened
 {
-    if (found==8)return 0;
-    if (start!=1){seconds=0;return 0;}
+    if (found == 8)return 0;
+    if (start != 1){seconds = 0; return 0;}
     timeout=setTimeout(add, 1000);
 }
 function reset() // starting game from begining
 {
     document.querySelector("body").remove();
-    let newbody=document.createElement("body");
+    let newbody = document.createElement("body");
     newbody.appendChild(copy);
     document.querySelector("html").appendChild(newbody);
-    isopen=false, curropen=0, currmoves=0, start=0,found=0, starsgained=3;
-    seconds=0, minutes=0, hours=0;
+    isopen = false, curropen = 0, currmoves = 0, start = 0,found = 0, starsgained = 3;
+    seconds = 0, minutes = 0, hours = 0;
     shuffleAndAddListners();
+    makeCopy();
 }
     makeCopy();
     shuffleAndAddListners();
