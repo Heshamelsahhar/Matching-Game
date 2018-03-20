@@ -125,6 +125,7 @@ ul {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
 
 
 
@@ -192,7 +193,8 @@ transition-duration: 500ms;
     border-radius: 5px;
     padding: 2%;
     background-color: whitesmoke;
-    margin: 15% auto;
+    margin: auto;
+    margin-top: 10%;
     width: 40%;
     font-family: cursive;
     color: tomato;
@@ -220,8 +222,11 @@ transition-duration: 500ms;
     font-size: 2em;
     margin-left: 5%;
 }
-.moves-no 
-{
+.moves-no {
+    margin-left: 5%;
+    font-size: 2em;
+}
+.question {
     margin-left: 5%;
     font-size: 2em;
 }
@@ -258,7 +263,7 @@ transition-duration: 500ms;
         margin: 0;
     }
     .rep {
-       
+        cursor: pointer;
         width: 5%;
     }
 

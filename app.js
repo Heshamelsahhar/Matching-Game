@@ -105,7 +105,7 @@ function openCard(ev,arr) // in case of card press
             curropen = 0;
             },1000);
             found++;
-            if (found == 8)
+            if (found == 1)
             {
                 setTimeout(runModal,1000);
             }
@@ -183,6 +183,11 @@ function shuffleAndAddListners() // adding listners to elements
     document.querySelector(".cont").addEventListener("click",function(){ // Modal continue button press 
     
         document.querySelector(".win-modal").classList.remove("open");
+    });
+    document.querySelector(".yes").addEventListener("click",function(){ // Modal continue button press 
+    
+        document.querySelector(".win-modal").classList.remove("open");
+        reset();
     });
     document.querySelector(".rep").addEventListener("click",reset);
 
