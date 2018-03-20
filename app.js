@@ -105,7 +105,7 @@ function openCard(ev,arr) // in case of card press
             curropen = 0;
             },1000);
             found++;
-            if (found == 1)
+            if (found == 8)
             {
                 setTimeout(runModal,1000);
             }
