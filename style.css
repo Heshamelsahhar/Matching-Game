@@ -34,13 +34,6 @@ body {
     margin: 0;
 }
 
-.noselect {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 ul {
     list-style-type: none;
 }
@@ -128,6 +121,10 @@ ul {
     -webkit-box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
     box-shadow: 9px 13px 37px -12px rgba(0,0,0,0.75);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
 
 
