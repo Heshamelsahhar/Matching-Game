@@ -60,8 +60,10 @@ function openCard(ev,arr) // in case of card press
         moves.innerHTML = `${totalmoves} moves`;
         if (totalmoves % 20 == 0)
         {
+            if (starsgained>=2){
             document.getElementsByClassName("stars")[0].firstElementChild.remove();
             starsgained--;
+            }
         }
         setTimeout(() => {
         if (givencard.firstElementChild.getAttribute("src")!==opened.firstElementChild.getAttribute("src"))
@@ -197,6 +199,10 @@ function shuffleAndAddListners() // adding listners to elements
     shuffle(arr);
     for (let i = 0 ; i < elem.length ; i++)
     {
+        while (elem[i].firstChild)
+        {
+            elem[i].removeChild(elem[i].firstChild);
+        }
         elem[i].addEventListener("click",function(e){openCard(e,elem)}); // adding Event listner for each card
         let child = document.createElement("img");
         child.setAttribute("src",`img/${arr[i]+1}.png`);
@@ -215,12 +221,14 @@ function reset() // starting game from begining
     document.querySelector("body").remove();
     let newbody = document.createElement("body");
     newbody.appendChild(copy);
+    console.log(newbody);
     document.querySelector("html").appendChild(newbody);
     isopen = false, curropen = 0, currmoves = 0, start = 0,found = 0, starsgained = 3;
-    seconds = 0, minutes = 0, hours = 0;
+    seconds = 0, minutes = 0, hours = 0,totalmoves = 0;
     shuffleAndAddListners();
     makeCopy();
 }
-    makeCopy();
-    shuffleAndAddListners();
+
+shuffleAndAddListners();
+makeCopy();
 
