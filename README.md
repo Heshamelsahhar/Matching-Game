@@ -4,7 +4,7 @@ a simple memory game that you have to match every equal card to open them all
 
 ## Getting Started
 
-You can start playing it immediately without any Prerequsites
+You can start playing it immediately without any Prerequsites by downloading it or from [here](https://heshamelsahhar.github.io/Matching-Game/)
 
 ## Languages used
 
